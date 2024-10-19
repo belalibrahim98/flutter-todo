@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/constants/app_colors.dart';
+import 'package:todo_app/ui/home/list/task_bottom_sheet.dart';
 import 'package:todo_app/ui/home/list/tasks_list_tab.dart';
 import 'package:todo_app/ui/home/settings/settings_tab.dart';
 
@@ -17,30 +19,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
-        title: const Text("Todo App"),
+        // titleSpacing: 52,
+        title: Text(
+          "ToDo List",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        // toolbarHeight: MediaQuery.of(context).size.height * 0.19,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        shape: const StadiumBorder(
-            side: BorderSide(
-          color: Colors.white,
-          width: 4,
-        )),
-        onPressed: () {},
+        onPressed: () {
+          addTaskBottomSheet(context);
+        },
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
         notchMargin: 12,
-        // clipBehavior: Clip.hardEdge,
         child: BottomNavigationBar(
           currentIndex: selectedIndex,
           onTap: (index) {
             selectedIndex = index;
-
             setState(() {});
-            // Navigator.of(context).pushNamed(tabs[index]);
           },
           items: const [
             BottomNavigationBarItem(
@@ -54,12 +55,44 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: tabs[selectedIndex],
+      body: Stack(
+        children: [
+          Container(
+            color: AppColors.primaryColor,
+            height: MediaQuery.of(context).size.height * 0.1,
+            width: double.infinity,
+          ),
+          Expanded(
+            child: selectedIndex == 0
+                ? Padding(
+                    padding: MediaQuery.of(context).padding.copyWith(
+                        top: MediaQuery.of(context).size.height * 0.037),
+                    child: const TasksListTab())
+                : const SettingsTab(),
+            //tabs[selectedIndex],
+          ),
+        ],
+      ),
     );
   }
 
-  List<Widget> tabs = [
-    const TasksListTab(),
-    const SettingsTab(),
-  ];
+  void addTaskBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+      ),
+      // isScrollControlled: true,
+      // useSafeArea: true,
+      context: context,
+      builder: (context) => const TaskBottomSheet(),
+    );
+  }
+
+  // List<Widget> tabs = [
+  //   const TasksListTab(),
+  //   const SettingsTab(),
+  // ];
 }

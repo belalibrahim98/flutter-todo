@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/styles/my_theme_data.dart';
 import 'package:todo_app/ui/home/home_screen.dart';
 import 'package:todo_app/ui/home/splash/splash_screen.dart';
 
@@ -15,28 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        textTheme: const TextTheme(
-            titleMedium: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        )),
-        scaffoldBackgroundColor: const Color(0xFFDFECDB),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Color(0xFFC8C9CB),
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
-        ),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.blue,
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: false,
-      ),
+      theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),

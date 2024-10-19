@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todo_app/constants/app_colors.dart';
 import 'package:todo_app/ui/utils.dart';
 
 class TaskItem extends StatelessWidget {
@@ -8,6 +9,38 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
+      // key: const ValueKey(0),
+
+      // The start action pane is the one at the left or the top side.
+      startActionPane: ActionPane(
+        extentRatio: 0.5,
+        // A motion is a widget used to control how the pane animates.
+        motion: const BehindMotion(),
+
+        // A pane can dismiss the Slidable.
+        dismissible: DismissiblePane(onDismissed: () {}),
+
+        // All actions are defined in the children parameter.
+        children: [
+          // A SlidableAction can have an icon and/or a label.
+          SlidableAction(
+            onPressed: (_) {},
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            backgroundColor: AppColors.redColor,
+            foregroundColor: AppColors.whiteColor,
+            icon: Icons.delete,
+            label: 'Delete',
+          ),
+          // SlidableAction(
+          //   onPressed: doNothing,
+          //   backgroundColor: Color(0xFF21B7CA),
+          //   foregroundColor: Colors.white,
+          //   icon: Icons.share,
+          //   label: 'Share',
+          // ),
+        ],
+      ),
+
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
