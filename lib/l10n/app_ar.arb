@@ -1,0 +1,20 @@
+{
+    "todo_list": "قائمة المهام",
+    "todo": "مهمة",
+    "settings": "الاعدادات",
+    "add_new_task": "اضافة مهمة جديدة",
+    "enter_task_name": "ادخل اسم المهمة",
+    "please_enter_task_name": "الرجاء ادخال اسم المهمة",
+    "select_due_date": "تحديد تاريخ الانتهاء",
+    "no_date_selected": "لم يتم تحديد تاريخ",
+    "add_task": "اضافة المهمة",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "language": "اللغة",
+    "english": "انجليزي",
+    "arabic": "عربي",
+    "mode": "الوضع",
+    "light": "فاتح",
+    "dark": "داكن",
+    "done": "تم"
+}

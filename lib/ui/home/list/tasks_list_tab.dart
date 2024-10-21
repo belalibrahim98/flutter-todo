@@ -1,7 +1,4 @@
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/constants/app_colors.dart';
 import 'package:todo_app/ui/home/list/calender_widget.dart';
 import 'package:todo_app/ui/home/list/task_item.dart';
 

@@ -25,6 +25,11 @@ class MyThemeData {
         fontWeight: FontWeight.w400,
         color: AppColors.blackishColor,
       ),
+      bodyMedium: GoogleFonts.inter(
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        color: AppColors.blackishColor,
+      ),
     ),
     scaffoldBackgroundColor: AppColors.bgLightColor,
     bottomAppBarTheme: const BottomAppBarTheme(
