@@ -1,0 +1,20 @@
+{
+    "todo_list": "Todo List",
+    "todo": "Todo",
+    "settings": "Settings",
+    "add_new_task": "Add New Task",
+    "enter_task_name": "Enter Task Name",
+    "please_enter_task_name": "Please Enter Task Name",
+    "select_due_date": "Select Due Date",
+    "no_date_selected": "No Date Selected",
+    "add_task": "Add Task",
+    "delete": "Delete",
+    "edit": "Edit",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "mode": "Mode",
+    "light": "Light",
+    "dark": "Dark",
+    "done": "Done"
+}

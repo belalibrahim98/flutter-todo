@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskBottomSheet extends StatefulWidget {
   const TaskBottomSheet({super.key});
@@ -60,7 +61,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
         child: Column(
           children: [
             Text(
-              'Add new Task',
+              AppLocalizations.of(context)!.add_new_task,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 38),
@@ -77,13 +78,14 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
+                        return AppLocalizations.of(context)!
+                            .please_enter_task_name;
                       }
                       return null;
                     },
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.all(5),
-                      hintText: 'enter your task',
+                      hintText: AppLocalizations.of(context)!.enter_task_name,
                       hintStyle: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
@@ -93,7 +95,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                   ),
                   const SizedBox(height: 38),
                   Text(
-                    'Select Date',
+                    AppLocalizations.of(context)!.select_due_date,
                     style: Theme.of(context).textTheme.titleSmall,
                     textAlign: TextAlign.start,
                   ),
@@ -104,7 +106,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                     },
                     child: Text(
                       _selectedDate == null
-                          ? 'No date selected'
+                          ? AppLocalizations.of(context)!.no_date_selected
                           : formatter.format(_selectedDate!),
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
@@ -114,7 +116,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                     onPressed: () {
                       addTask();
                     },
-                    child: const Text('Add Task'),
+                    child: Text(AppLocalizations.of(context)!.add_task),
                   ),
                 ],
               ),

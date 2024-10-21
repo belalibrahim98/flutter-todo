@@ -3,6 +3,7 @@ import 'package:todo_app/constants/app_colors.dart';
 import 'package:todo_app/ui/home/list/task_bottom_sheet.dart';
 import 'package:todo_app/ui/home/list/tasks_list_tab.dart';
 import 'package:todo_app/ui/home/settings/settings_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         // titleSpacing: 52,
         title: Text(
-          "ToDo List",
+          AppLocalizations.of(context)!.todo_list,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         // toolbarHeight: MediaQuery.of(context).size.height * 0.19,
@@ -43,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIndex = index;
             setState(() {});
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'Todo',
+              icon: const Icon(Icons.list),
+              label: AppLocalizations.of(context)!.todo,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
+              icon: const Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.settings,
             ),
           ],
         ),
@@ -62,15 +63,17 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.1,
             width: double.infinity,
           ),
-          Expanded(
-            child: selectedIndex == 0
-                ? Padding(
-                    padding: MediaQuery.of(context).padding.copyWith(
-                        top: MediaQuery.of(context).size.height * 0.037),
-                    child: const TasksListTab())
-                : const SettingsTab(),
-            //tabs[selectedIndex],
-          ),
+          selectedIndex == 0
+              ? Padding(
+                  padding: MediaQuery.of(context).padding.copyWith(
+                      top: MediaQuery.of(context).size.height * 0.037),
+                  child: const TasksListTab())
+              : Padding(
+                  padding: MediaQuery.of(context).padding.copyWith(
+                        top: MediaQuery.of(context).size.height * 0.1,
+                      ),
+                  child: const SettingsTab(),
+                ),
         ],
       ),
     );
